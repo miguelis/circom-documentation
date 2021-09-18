@@ -1,6 +1,5 @@
 # Welcome!
 
-* [Welcome!](./)
 * [Background](background.md)
 * [Getting started](getting-started/)
   * [Installation](getting-started/installation.md)
