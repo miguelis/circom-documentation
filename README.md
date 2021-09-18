@@ -1,3 +1,7 @@
+---
+description: This is the table of contents of the CIRCOM documentation.
+---
+
 # Welcome!
 
 * [Background](background.md)
