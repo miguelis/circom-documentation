@@ -35,5 +35,5 @@
     * [Unknowns](circom-insight/circom-compiler/unknowns.md)
   * [circom library](circom-insight/circom-library.md)
 * [Generating zero-knowledge proofs](generating-zero-knowledge-proofs/)
-  * [circom & snarkJS](generating-zero-knowledge-proofs/circom-and-snarkjs-done.md)
+  * [circom & snarkJS](generating-zero-knowledge-proofs/circom-and-snarkjs.md)
 
