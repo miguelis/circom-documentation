@@ -1,2 +1,2 @@
-# Generating zero-knowledge proofs
+# Generating zero-knowledge proofs.
 
