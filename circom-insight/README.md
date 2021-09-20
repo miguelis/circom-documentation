@@ -6,9 +6,6 @@ description: >-
 
 # circom insight
 
-{% page-ref page="circom-compiler/" %}
-
-{% page-ref page="circom-library.md" %}
-
-
+* [circom compiler](circom-compiler/)
+* [circom library](circom-library.md)
 

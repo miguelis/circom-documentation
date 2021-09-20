@@ -12,6 +12,8 @@ description: >-
 The arithmetic circuits built using circom operate on signals. Let us build our first circuit: a 2-input multiplier.
 
 ```text
+pragma circom 2.0.0;
+
 /*This circuit multiplies in1 and in2.*/
 template Multiplier2 () {
    //Declaration of signals.
@@ -24,7 +26,9 @@ template Multiplier2 () {
 }
 ```
 
-First, we use the reserved keyword `template`to define our new circuit, called `Multiplier2`.  Now, we have to define its [signals](../intro/common-programming-concepts/signals/). Signals can be named with an identifier, e.g.,  `in1, in2, out.`  In this circuit, we have two input signals`in1, in2` and an output signal `out`.  Finally, we use `<==` to set that the value of `out` is the result of multiplying the values of `in1` and `in2`.  Equivalently, we could have also used the operator `==>`, e.g., `in1 * in2 ==> out`.
+First, the `pragma` instruction is used to specify the compiler version. This is to ensure that the circuit is compatible with the compiler version indicated after the `pragma` instruction. Otherwise, the compiler throws a warning. 
+
+Then, we use the reserved keyword `template`to define our new circuit, called `Multiplier2`.  Now, we have to define its [signals](../intro/common-programming-concepts/signals/). Signals can be named with an identifier, e.g.,  `in1, in2, out.`  In this circuit, we have two input signals`in1, in2` and an output signal `out`.  Finally, we use `<==` to set that the value of `out` is the result of multiplying the values of `in1` and `in2`.  Equivalently, we could have also used the operator `==>`, e.g., `in1 * in2 ==> out`.
 
 Let us notice that in each circuit, we first declare its signals, and after that, the assignments to set the value of the output signals.
 

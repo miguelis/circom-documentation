@@ -6,13 +6,14 @@
   * [Installation](getting-started/installation.md)
   * [Our first circom program](getting-started/our-first-circom-program.md)
   * [Our second circom program](getting-started/our-second-circom-program.md)
-  * [Our first zero-knowledge proof](getting-started/our-first-zero-knowledge-proof-need-more-changes-with-the-example.md)
-  * [The baby jubjub elliptic curve](getting-started/the-baby-jubjub-elliptic-curve-pending.md)
+  * [Our first zero-knowledge proof](getting-started/our-first-zero-knowledge-proof.md)
+  * [The baby jubjub elliptic curve](getting-started/the-baby-jubjub-elliptic-curve.md)
 
 ## Language <a id="intro"></a>
 
 * [circom fundamentals](intro/common-programming-concepts/README.md)
   * [Templates & components](intro/common-programming-concepts/template/README.md)
+    * [Pragma](intro/common-programming-concepts/template/pragma.md)
     * [The Main component](intro/common-programming-concepts/template/the-main-component.md)
     * [Include](intro/common-programming-concepts/template/include.md)
     * [Functions](intro/common-programming-concepts/template/functions.md)
@@ -39,5 +40,5 @@
     * [Unknowns](circom-insight/circom-compiler/unknowns.md)
   * [circom library](circom-insight/circom-library.md)
 * [Generating zero-knowledge proofs](generating-zero-knowledge-proofs/README.md)
-  * [circom & snarkJS](generating-zero-knowledge-proofs/circom-and-snarkjs-done.md)
+  * [circom & snarkJS](generating-zero-knowledge-proofs/circom-and-snarkjs.md)
 

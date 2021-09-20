@@ -21,6 +21,7 @@ The list of reserved keywords is the following:
 * **log:** Print the result of the evaluation.
 * **assert:** Check the condition at construction time.
 * **include:** Include code of the indicated file.
+* **pragma circom**: Instruction to check the compiler version.
 
 
 

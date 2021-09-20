@@ -13,7 +13,7 @@ Recently, a set of cryptographic primitives called **zero-knowledge proofs** \(Z
 A zero-knowledge proof is a protocol that enables one party, called the **prover**, to convince another, the **verifier**, that a statement is true without revealing any information beyond the veracity of the statement. For example, a prover can create proofs for statements like the following:
 
 * _"I know the private key that corresponds to this public key"_ : in this case, the proof would not reveal any information about the private key.
-* _"I know a private key that corresponds to a public key from this list"_ : _a_s before, the proof would not reveal information about the private key but in this case, the associated public key would also remain private.
+* _"I know a private key that corresponds to a public key from this list"_ : \_a\_s before, the proof would not reveal information about the private key but in this case, the associated public key would also remain private.
 * _"I know the preimage of this hash value"_ : in this case, the proof would show that the prover knows the preimage but it would not reveal any information about the value of that preimage.
 * _"This is the hash of a blockchain block that does not produce negative balances"_ : in this case, the proof would not reveal any information about the amount, origin or destination of the transactions included in the block.
 
@@ -27,7 +27,6 @@ Like most ZKPs, zk-SNARKs permit proving **computational statements**, but they 
 
 An **`F_p`-arithmetic circuit** is a circuit consisting of set of wires that carry values from the field `F_p` and connect them to addition and multiplication gates `modulo p`.
 
-{% hint style="info" %}
 👉 Remember that given a prime number `p`, the **finite field** **`F_p`** consists of the set of numbers `{0,...,p-1}`on which we can add and multiply these numbers modulo `p`.
 
 For example, the finite field `F_7` consists of the set of numbers `{0,...,6}`on which we can add and multiply numbers modulo `7`. An easy way to understand how operating modulo `7` works, is to **think of a clock of 7 hours** in which we do not care about how many times the hands have turned the clock, only what time they mark. In other words, we only care about the reminder of dividing by 7. For instance:
@@ -35,25 +34,22 @@ For example, the finite field `F_7` consists of the set of numbers `{0,...,6}`on
 * `15 modulo 7 = 1`, since `15 = 7 + 7 + 1`
 * `7 modulo 7 = 0`
 * `4*3 modulo 7 = 5`, since `4*3 = 12 = 7 + 5`
-{% endhint %}
 
 ## Signals of a circuit <a id="signals-of-a-circuit"></a>
 
 So, an arithmetic circuit takes some **input signals** that are values between `0,...,p-1` and performs additions and multiplications between them modulo the prime `p`. The output of every addition and multiplication gate is considered an **intermediate signal**, except for the last gate of the circuit, the output of which**,** is the **output signal** of the circuit.
 
-{% hint style="warning" %}
 To generate and validate zk-SNARK proofs in **Ethereum**, we need to work with `F_p`-arithmetic circuits, taking the prime:
 
 ```text
 p = 21888242871839275222246405745257275088548364400416034343698204186575808495617
 ```
-{% endhint %}
 
 In the figure below, we have defined an `F_7`-arithmetic circuit that performs the operation: `out = a*b + c`. The circuit has 5 signals: the signals `a`, `b` and `c` are input signals, `d` is an intermediate signal and the`out` signal is the output of the circuit.
 
 ![](https://gblobscdn.gitbook.com/assets%2F-MDt-cjMfCLyy351MraT%2F-MHR5icu-Jxuas-UC7DY%2F-MHR60RuAQK6qNzhOPgE%2Foutput.jpg?alt=media&token=39d3d332-cac5-4546-ab43-9f489241ae50)
 
-#### ​ <a id="undefined"></a>
+### ​ <a id="undefined"></a>
 
 In order to use zk-SNARK protocols, we need to describe the relation between signals as a system of equations that relate variables with gates. From now on, the equations that describe the circuit will be called **constraints**, and you can think of them as conditions that signals of that circuit must satisfy.
 
@@ -67,9 +63,7 @@ Note that constraint **must be quadratic, linear or constant equations**, and so
 
 `(a_11*s_1 + ... + a_1n*s_n)*(b_11*s_1 + ... + b_1n*s_n) + (c_11*s_1 + ... + c_1n*s_n) = 0 (a_21*s_1 + ... + a_2n*s_n)*(b_21*s_1 + ... + b_2n*s_n) + (c_21*s_1 + ... + c_1n*s_n) = 0 (a_31*s_1 + ... + a_3n*s_n)*(b_31*s_1 + ... + b_3n*s_n) + (c_31*s_1 + ... + c_1n*s_n) = 0 ... (a_n1*s_1 + ... + a_nm*s_n)*(b_n1*s_1 + ... + b_nm*s_n) + (c_n1*s_1 + ... + c_nm*s_n) = 0`
 
-{% hint style="danger" %}
 Remember that operations inside the circuit are performed modulo a certain prime `p`. So, all equations above are defined `modulo p`.
-{% endhint %}
 
 In the previous example, the R1CS of our circuit consists of the following two equations:
 
@@ -80,11 +74,9 @@ In this case, by replacing directly the variable `d`, we can gather the two equa
 
 * `out = a*b + c modulo 7`
 
-{% hint style="info" %}
-The nice thing about circuits, is that although most **zero-knowledge protocols have an inherent complexity** that can be overwhelming for many developers, the **design of arithmetic circuits is clear and neat**. 
+The nice thing about circuits, is that although most **zero-knowledge protocols have an inherent complexity** that can be overwhelming for many developers, the **design of arithmetic circuits is clear and neat**.
 
 👉 With `circom`, you design your own circuits with your own constraints, and the compiler outputs the R1CS representation that you will need for your zero-knowledge proof.
-{% endhint %}
 
 Zero-knowledge permits proving **circuit satisfiability**. What this means is, that you can prove that you know a set of signals that satisfy the circuit, or in other words, that you know a solution to the R1CS. This set of signals is called **witness**.
 

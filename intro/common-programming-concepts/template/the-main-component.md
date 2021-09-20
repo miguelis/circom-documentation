@@ -8,7 +8,7 @@ This is a special initial component needed to create a circuit and it defines th
 component main {public [signal_list]} = tempid(v1,...,vn);
 ```
 
-where `{public [signal_list]}` is optional. Any input signal of the template that is not included in the list is considered private. 
+where `{public [signal_list]}` is optional. Any input signal of the template that is not included in the list is considered private.
 
 ```text
 template A(){
@@ -23,7 +23,5 @@ component main {public [in1]}= A();
 
 In this example, we have two input signals `in1` and `in2`. Let us notice that `in1` has been declared as a public signal for the circuit, whereas `in2` is considered a private signal since it does not appear in the list. Finally, output signals are always considered public signals.
 
-{% hint style="danger" %}
 Only one main component can be defined, not only in the file being compiled but also in any other circom file included in the program. Otherwise, the compilation fails and the next message is shown: _"Multiple main components in the project structure"_
-{% endhint %}
 

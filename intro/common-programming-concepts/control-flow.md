@@ -47,11 +47,9 @@ while(i < 100){
 }
 ```
 
-{% hint style="danger" %}
-**Important**: when constraints are generated in any block inside an if-then-else or loop statement, the condition cannot be unknown \(see [Unknowns](../../circom-insight/circom-compiler/unknowns.md)\). This is because the constraint generation must be unique and cannot depend on unknown input signals. 
+**Important**: when constraints are generated in any block inside an if-then-else or loop statement, the condition cannot be unknown \(see [Unknowns](../../circom-insight/circom-compiler/unknowns.md)\). This is because the constraint generation must be unique and cannot depend on unknown input signals.
 
 In case the expression in the condition is unknown and some constraint is generated, the compiler will generate the next error message: "_There are constraints depending on the value of the condition and it can be unknown during the constraint generation phase_".
-{% endhint %}
 
 ```text
 template A(){}
@@ -63,10 +61,9 @@ template wrong(N1){
     }
 }
 component main {public [in]} = wrong(1);
-
 ```
 
-In this example, the condition depends on the input signal `in` whose value is unknown at compilation time. 
+In this example, the condition depends on the input signal `in` whose value is unknown at compilation time.
 
 Let us also notice that if the body of the statement does not involve any signal or component; or a constraint does not depend on a value involved with unknown values, then the compilation will succeed as it can be seen in the next example.
 
@@ -97,9 +94,7 @@ template right(N1,N2){
 
 This template is correct since the values of variables involved in the constraint only depend on known values of parameter `N1` and `N2`.
 
-{% hint style="danger" %}
 **Important**: Another compilation error is generated when the content of a var depends on some unknown condition: that is when the var takes its value inside an if-then-else or loop statement with an unknown condition. Then, the content of the variable is a non-quadratic expression and, as such, cannot be used in the generation of a constraint.
-{% endhint %}
 
 ```text
 template wrong(){
@@ -115,9 +110,7 @@ template wrong(){
 
 This template produces a compilation error, since the value of variable `t` involved in the last constraint depends on the unknown value of variable `in`.
 
-{% hint style="info" %}
 The control flow of the computations is like in other imperative languages, but the [instantiation of components](template/) may not follow the sequential structure of the code because component instantiation will not be triggered until all input signals have a concrete value assigned.
-{% endhint %}
 
 ```text
 template mult(){
