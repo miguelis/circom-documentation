@@ -14,9 +14,7 @@ var dbl[16][2] = base;
 var y[5] = someFunction(n);
 ```
 
-{% hint style="danger" %}
 The notation m\[i,j\] for arrays of arrays \(matrices\) is not allowed. 
-{% endhint %}
 
 On the other hand, the following case will produce a compilation error, since the size of the array should be explicitly given;
 
