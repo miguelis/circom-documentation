@@ -196,3 +196,11 @@ template MultiAND(n) {
 }
 ```
 
+When components are independent \(the inputs do not depend on each others’ outputs\), the computation of these parts can be done in parallel using the tag `parallel`, like shown in the next line.
+
+```text
+template parallel NameTemplate(...){...}
+```
+
+If this tag is used, the resulting C++ file will contain the parallelized code to compute the witness. Parallelization becomes particularly relevant when dealing with large circuits.
+
