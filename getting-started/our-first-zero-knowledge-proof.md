@@ -88,7 +88,6 @@ snarkjs zkey export verificationkey circuit_final.zkey verification_key.json
 
 Now, the verification key from `circuit_final.zkey` is exported into the file `verification_key.json`.
 
-{% hint style="info" %}
 You can always **verify** that the computations of a `.ptau` or a `.zkey` file are correct:
 
 ```text
@@ -100,11 +99,9 @@ If everything checks out, you should see the following at the top of the output:
 ```text
 [INFO]  snarkJS: Powers of Tau file OK![INFO]  snarkJS: ZKey OK!
 ```
-{% endhint %}
 
-{% hint style="danger" %}
 ​The command `snarkjs zkey verify` also checks that the `.zkey` file corresponds to the specific circuit.
-{% endhint %}
+
 
  3. Once the setup is ready, we **compute a** **witness** for the circuit.
 
@@ -112,11 +109,9 @@ Before creating any proof, we need to calculate all the signals of the circuit t
 
 In our case, we want to prove that we able to factor the number 33. So, we assign `a = 3` and `b = 11`.
 
-{% hint style="danger" %}
 
 
 Note that we could assign the number 1 to one of the inputs and the number 33 to the other. So, our proof does not really show that we are able to factor the number 33. [At the end of this section](our-first-zero-knowledge-proof-need-more-changes-with-the-example.md#my-first-zero-knowledge-proof), we will add few modifications to the circuit to deal with this problem.
-{% endhint %}
 
 We need to create a file named `input.json` with the inputs.
 
