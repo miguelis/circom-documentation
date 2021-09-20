@@ -18,7 +18,7 @@ template Multiplier2() {
 Run the following command:
 
 ```text
-circom multiplier2.circom --r1cs --wasm --sym
+circom multiplier2.circom --r1cs --wasm --sym --cc
 ```
 
 With these options we generate three types of files:
@@ -26,6 +26,7 @@ With these options we generate three types of files:
 * `--r1cs`: it generates the file `circuit.r1cs` that contains the [R1CS constraint system](../background.md#rank-1-constraint-system) of the circuit in binary format.
 * `--wasm`: it generates the file `circuit.wasm` that contains the `Wasm` code to generate the [witness](../background.md#witness).
 * `--sym` : it generates the file `circuit.sym` , a symbols file required for debugging or for printing the constraint system in an annotated mode.
+* `--cc` : it generates the directory `circuit` that contains several files \(main.cpp, MakeFile, ...\)  needed to compile the C code to generate the witness.
 
 ### My first zero-knowledge proof <a id="my-first-zero-knowledge-proof"></a>
 

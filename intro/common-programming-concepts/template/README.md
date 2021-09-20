@@ -2,7 +2,7 @@
 
 ## Templates
 
-The mechanism to create generic circuits in Circom is the so-called templates. 
+The mechanism to create generic circuits in Circom is the so-called templates.
 
 They are normally parametric on some values that must be instantiated when the template is used. The instantiation of a template is a new circuit object, which can be used to compose other circuits, so as part of larger circuits. Since templates define circuits by instantiation, they have their own signals \(input, output, etc\).
 
@@ -16,8 +16,7 @@ template tempid ( param_1, ... , param_n ) {
 }
 ```
 
-Templates cannot include local functions or template definitions. 
-
+Templates cannot include local functions or template definitions.
 
 Assigning a value to an input signal inside the same template where it has been defined also generates the error _"Exception caused by invalid assignment"_ as can be seen in the next example.
 
@@ -51,7 +50,6 @@ template wrong (N) {
  component c = A(a,N); 
 }
 component main {public [in]} = wrong(1);
-
 ```
 
 Regarding the signals defined in the template that will be part of the component, the following compiler messages will be generated if we use the option `--inspect` to compile the code:
@@ -69,9 +67,11 @@ template A(N){
 component main {public [in]} = A(1);
 ```
 
-         During the compilation of this code, we obtain the next warning message: _"In template "A\(1\)".             Unconstrained signal. "in" = Maybe use: in\*0 === 0"_
+```text
+     During the compilation of this code, we obtain the next warning message: _"In template "A\(1\)".             Unconstrained signal. "in" = Maybe use: in\*0 === 0"_
 
-      2. If an intermediary signal is used only in one constraint, a hint message will be generated.
+  2. If an intermediary signal is used only in one constraint, a hint message will be generated.
+```
 
 ```text
 template A(N){
@@ -84,9 +84,11 @@ template A(N){
 component main {public [in]} = A(1);
 ```
 
-           During the compilation of this code, we obtain the next warning message: "_In template "A\(1\)". One constraint intermediate: "inter" = Maybe use: inter\*0 === 0"._
+```text
+       During the compilation of this code, we obtain the next warning message: "_In template "A\(1\)". One constraint intermediate: "inter" = Maybe use: inter\*0 === 0"._
 
-       3. If there is no output signal a warning message will be generated. 
+   3. If there is no output signal a warning message will be generated. 
+```
 
 ```text
 template A(N){
@@ -95,7 +97,9 @@ template A(N){
 component main {public [in]} = A(1);
 ```
 
-          During the compilation of this code, we obtain the next warning message: _"There is no output signal."_.
+```text
+      During the compilation of this code, we obtain the next warning message: _"There is no output signal."_.
+```
 
 The compiler would suggest adding a validation Binary output \(that checks the inputs\).
 
@@ -173,13 +177,13 @@ template MultiAND(n) {
     if (n==1) {
         out <== in[0];
     } else if (n==2) {
-      	and = AND();
+          and = AND();
         and.a <== in[0];
         and.b <== in[1];
         out <== and.out;
     } else {
         and = AND();
-	var n1 = n\2;
+    var n1 = n\2;
         var n2 = n-n\2;
         ands[0] = MultiAND(n1);
         ands[1] = MultiAND(n2);
@@ -191,6 +195,4 @@ template MultiAND(n) {
     }
 }
 ```
-
-
 

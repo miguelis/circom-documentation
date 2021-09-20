@@ -57,9 +57,7 @@ $ snarkjs zkey export solidityverifier circuit_final.zkey verifier.sol
 
 * Cut and paste in [Remix](https://remix-project.org/) the code from the output file named `verifier.sol` . You only need to deploy the `Verifier` contract.
 
-
 ### [Would you like to know more about `snarkJS`? Start using it now!](https://docs.circom.io/1.-an-introduction/getting-started) <a id="would-you-like-to-know-more-about-snarkjs-start-using-it-now"></a>
-
 
 ## Visual summary <a id="visual-summary"></a>
 

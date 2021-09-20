@@ -12,8 +12,5 @@ In this chapter, we prepare the reader to get started using circom:
 * [Writing your first program](our-first-circom-program.md) using the main features of circom: [signals](../intro/common-programming-concepts/signals/), [variables](../intro/common-programming-concepts/signals/variables-and-mutability.md), [templates,](../intro/common-programming-concepts/template/) [components,](../intro/common-programming-concepts/template/) and [arrays](../intro/common-programming-concepts/data-types.md).
 * [Writing your second program](our-second-circom-program.md) using other important features of circom: [constraints](../intro/common-programming-concepts/constraint-generation.md), [signal tags](../intro/common-programming-concepts/signals/)
 * [Compiling a program and genereting zero-knowledge proof](our-first-zero-knowledge-proof.md) using `snarksjs`.
-* [Writing a simple elliptic curve](the-baby-jubjub-elliptic-curve.md), called baby jubjub, from the circom library.
-
-
-
+* [Writing a simple elliptic curve](https://github.com/miguelis/circom-documentation/tree/df0e4047acd49626f29047cfd8ae09a50be68535/getting-started/the-baby-jubjub-elliptic-curve.md), called baby jubjub, from the circom library.
 

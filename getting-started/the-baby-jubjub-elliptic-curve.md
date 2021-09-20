@@ -12,17 +12,17 @@ This curve is defined by two coefficients, a and d, whose values are 168700 and 
 
 ```text
 function Baby_const_a(){                         
-	 return 168700;                                    
+     return 168700;                                    
 }                                                
 
 function Baby_const_d(){
-	 return 168696;
+     return 168696;
 }
 ```
 
 This way we only have to call these functions instead of writing each value in every template in which we need them.
 
-The first template that we are going to define will check if a given point belongs to the curve. Every point of this curve satisfies the next equation: $$ax^2+y² = 1 + dx²y²$$ . 
+The first template that we are going to define will check if a given point belongs to the curve. Every point of this curve satisfies the next equation: $$ax^2+y² = 1 + dx²y²$$ .
 
 ```text
 template BabyCheck() {
@@ -38,13 +38,13 @@ template BabyCheck() {
 }
 ```
 
-First, we declare two input signals: one for each coordinate of the point to be checked. After that, we obtain the values of coefficients `a` and `d` from the functions previously defined. It is important to highlight that we cannot directly write the constraint `ax²+y²=== 1 + dx²y²` since it is not a quadratic constraint.  We need two new intermediate signals, `x2` and `y2`, to express `x²` and `y²`. Once we have these signals defined, we can check if the point belongs to the curve using a quadratic constraint:`ax2+y2 === 1 + d*x2*y2`.
+First, we declare two input signals: one for each coordinate of the point to be checked. After that, we obtain the values of coefficients `a` and `d` from the functions previously defined. It is important to highlight that we cannot directly write the constraint `ax²+y²=== 1 + dx²y²` since it is not a quadratic constraint. We need two new intermediate signals, `x2` and `y2`, to express `x²` and `y²`. Once we have these signals defined, we can check if the point belongs to the curve using a quadratic constraint:`ax2+y2 === 1 + d*x2*y2`.
 
 ## Addition of points in the curve
 
-Let us define how to operate in the elliptic curve group: we need to define a template for the addition of points and, later, a template for multiplication of a point by a scalar \(an element of $$F_p$$\). 
+Let us define how to operate in the elliptic curve group: we need to define a template for the addition of points and, later, a template for multiplication of a point by a scalar \(an element of $$F_p$$\).
 
-Given two points$$p_1 = (x_1,y_1)$$ and $$p_2 = (x_2,y_2)$$, their addition is defined as a point$$p_3=(x_3,y_3)$$, where $$x_3 = \frac{x_1y_2+x_2y_1}{1+dx_1x_2y_1y_2}$$  and $$y_3 = \frac{y_1y_2 - ax_1x_2}{1-dx_1x_2y_1y_2}$$ .
+Given two points$$p_1 = (x_1,y_1)$$ and $$p_2 = (x_2,y_2)$$, their addition is defined as a point$$p_3=(x_3,y_3)$$, where $$x_3 = \frac{x_1y_2+x_2y_1}{1+dx_1x_2y_1y_2}$$ and $$y_3 = \frac{y_1y_2 - ax_1x_2}{1-dx_1x_2y_1y_2}$$ .
 
 ```text
 template BabyAdd() {
@@ -69,22 +69,21 @@ template BabyAdd() {
     pout[1] <-- (delta + a*beta - gamma) / (1-d*tau);
     (1-d*tau)*pout[1] === (delta + a*beta - gamma);
 }
-
 ```
 
 In this example, we define a point using a 2-dimension array of signals. Then, we define two points as input signals, the third point as output signal, four intermediate signals, and the two coefficients of the curve. It is important to highlight that the value of the output signals cannot be expressed like a quadratic constraint due to the division. Consequently, we cannot use operator `<==`, and we have to use `<--` to set the value of signals `pout[0]` and `pout[1]`, and `===` to define the constraints among them and the input signals.
 
-The use of the operator `<==` guarantees an equivalence between the values of the signals after executing the code of the program and the constraints produced during the compilation. The use of the operators `<--` and `===` does not guarantee this equivalence and, thus, they must only be used  in cases in which the operator `<==` cannot be used, just like in the previous example. [Here](../intro/common-programming-concepts/signals/) you can find more details about these operators.
+The use of the operator `<==` guarantees an equivalence between the values of the signals after executing the code of the program and the constraints produced during the compilation. The use of the operators `<--` and `===` does not guarantee this equivalence and, thus, they must only be used in cases in which the operator `<==` cannot be used, just like in the previous example. [Here](../intro/common-programming-concepts/signals/) you can find more details about these operators.
 
-Due to the loss of equivalence between code and constraints, we can find cases in which the expected witness does not produce erroneous constraints and, other cases, in which the constraints are satisfied by unexpected witnesses.  
+Due to the loss of equivalence between code and constraints, we can find cases in which the expected witness does not produce erroneous constraints and, other cases, in which the constraints are satisfied by unexpected witnesses.
 
 ## **Multiplication of a point and a scalar in the curve**
 
 The most important operation in the curve is the multiplication of a point in the curve and a scalar, obtaining a new point which also belongs to the curve. We say that the first point is a generator point.
 
-For the security of the curve, it is very important to choose a good generator point. If it is not good enough, the curve will be easily attacked. The property that this point must satisfy is defined [here](https://iden3-docs.readthedocs.io/en/latest/iden3_repos/research/publications/zkproof-standards-workshop-2/baby-jubjub/baby-jubjub.html#pdf-link). It basically claims that a point is a good generator if we can obtain a huge number of different points from it. 
+For the security of the curve, it is very important to choose a good generator point. If it is not good enough, the curve will be easily attacked. The property that this point must satisfy is defined [here](https://iden3-docs.readthedocs.io/en/latest/iden3_repos/research/publications/zkproof-standards-workshop-2/baby-jubjub/baby-jubjub.html#pdf-link). It basically claims that a point is a good generator if we can obtain a huge number of different points from it.
 
-It is relatively easy to calculate a new point from the generator and a scalar in the field. However, if we know the generator and a point in the curve, it is quite difficult to calculate the scalar used to generate it. Consequently,  the key of this theory is that we can use a point in the curve as a public key for a cryptographic protocol, whereas the scalar used to generate such a point remains as a private key.
+It is relatively easy to calculate a new point from the generator and a scalar in the field. However, if we know the generator and a point in the curve, it is quite difficult to calculate the scalar used to generate it. Consequently, the key of this theory is that we can use a point in the curve as a public key for a cryptographic protocol, whereas the scalar used to generate such a point remains as a private key.
 
 ```text
 template BabyPbk() {

@@ -10,9 +10,6 @@ description: >-
 
 1. The **construction** phase, where the constraints are generated. 
 2. The **code generation** phase, where the code to compute the witness is generated.
-
-* [compiler messages](compiler-messages.md)
-* [unknown variables](unknowns.md)
-
-
+3. [compiler messages](compiler-messages.md)
+4. [unknown variables](unknowns.md)
 
