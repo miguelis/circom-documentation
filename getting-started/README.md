@@ -20,8 +20,6 @@ In this chapter, we prepare the reader to get started using circom:
 
 {% page-ref page="our-second-circom-program.md" %}
 
-{% page-ref page="our-first-zero-knowledge-proof-need-more-changes-with-the-example.md" %}
-
 {% page-ref page="the-baby-jubjub-elliptic-curve-pending.md" %}
 
 

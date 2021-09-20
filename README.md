@@ -5,7 +5,7 @@
   * [Installation](getting-started/installation.md)
   * [Our first circom program](getting-started/our-first-circom-program.md)
   * [Our second circom program](getting-started/our-second-circom-program.md)
-  * [Our first zero-knowledge proof](getting-started/our-first-zero-knowledge-proof-need-more-changes-with-the-example.md)
+  * [Our first zero-knowledge proof]()
   * [The baby jubjub elliptic curve](getting-started/the-baby-jubjub-elliptic-curve-pending.md)
 
 ## Language <a id="intro"></a>

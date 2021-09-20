@@ -13,7 +13,7 @@ Recently, a set of cryptographic primitives called **zero-knowledge proofs** \(Z
 A zero-knowledge proof is a protocol that enables one party, called the **prover**, to convince another, the **verifier**, that a statement is true without revealing any information beyond the veracity of the statement. For example, a prover can create proofs for statements like the following:
 
 * _"I know the private key that corresponds to this public key"_ : in this case, the proof would not reveal any information about the private key.
-* _"I know a private key that corresponds to a public key from this list"_ : _a_s before, the proof would not reveal information about the private key but in this case, the associated public key would also remain private.
+* _"I know a private key that corresponds to a public key from this list"_ : \_a\_s before, the proof would not reveal information about the private key but in this case, the associated public key would also remain private.
 * _"I know the preimage of this hash value"_ : in this case, the proof would show that the prover knows the preimage but it would not reveal any information about the value of that preimage.
 * _"This is the hash of a blockchain block that does not produce negative balances"_ : in this case, the proof would not reveal any information about the amount, origin or destination of the transactions included in the block.
 
@@ -49,7 +49,7 @@ In the figure below, we have defined an `F_7`-arithmetic circuit that performs t
 
 ![](https://gblobscdn.gitbook.com/assets%2F-MDt-cjMfCLyy351MraT%2F-MHR5icu-Jxuas-UC7DY%2F-MHR60RuAQK6qNzhOPgE%2Foutput.jpg?alt=media&token=39d3d332-cac5-4546-ab43-9f489241ae50)
 
-#### ​ <a id="undefined"></a>
+### ​ <a id="undefined"></a>
 
 In order to use zk-SNARK protocols, we need to describe the relation between signals as a system of equations that relate variables with gates. From now on, the equations that describe the circuit will be called **constraints**, and you can think of them as conditions that signals of that circuit must satisfy.
 
@@ -74,7 +74,7 @@ In this case, by replacing directly the variable `d`, we can gather the two equa
 
 * `out = a*b + c modulo 7`
 
-The nice thing about circuits, is that although most **zero-knowledge protocols have an inherent complexity** that can be overwhelming for many developers, the **design of arithmetic circuits is clear and neat**. 
+The nice thing about circuits, is that although most **zero-knowledge protocols have an inherent complexity** that can be overwhelming for many developers, the **design of arithmetic circuits is clear and neat**.
 
 👉 With `circom`, you design your own circuits with your own constraints, and the compiler outputs the R1CS representation that you will need for your zero-knowledge proof.
 
