@@ -16,9 +16,8 @@ template tempid ( param_1, ... , param_n ) {
 }
 ```
 
-{% hint style="danger" %}
 Templates cannot include local functions or template definitions. 
-{% endhint %}
+
 
 Assigning a value to an input signal inside the same template where it has been defined also generates the error _"Exception caused by invalid assignment"_ as can be seen in the next example.
 
