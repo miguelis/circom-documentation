@@ -5,6 +5,7 @@ description: In this section you will find basic information for building circui
 # circom fundamentals
 
 * [Templates & components](template/)
+  * [Pragma](template/pragma.md)
   * [The Main component](template/the-main-component.md)
   * [Include](template/include.md)
   * [Functions](template/functions.md)

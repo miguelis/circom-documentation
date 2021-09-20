@@ -12,6 +12,7 @@
 
 * [circom fundamentals](intro/common-programming-concepts/)
   * [Templates & components](intro/common-programming-concepts/template/)
+    * [Pragma](intro/common-programming-concepts/template/pragma.md)
     * [The Main component](intro/common-programming-concepts/template/the-main-component.md)
     * [Include](intro/common-programming-concepts/template/include.md)
     * [Functions](intro/common-programming-concepts/template/functions.md)
