@@ -11,9 +11,8 @@ description: >-
 1. The **construction** phase, where the constraints are generated. 
 2. The **code generation** phase, where the code to compute the witness is generated.
 
-{% page-ref page="compiler-messages.md" %}
-
-{% page-ref page="unknowns.md" %}
+* [compiler messages](compiler-messages.md)
+* [unknown variables](unknowns.md)
 
 
 
